@@ -1,0 +1,14 @@
+uuid: ed109911-6220-4719-8faa-5c8932d7aff9
+name: 'My Drupal 8 Site'
+mail: admin@example.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
