@@ -8,7 +8,7 @@ const { DefinePlugin } = require('webpack');
 // Plugins
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const RunScriptAfterEmit = require('../../tools/webpack/run-script-after-emit');
-const particle = require('../../particle');
+const interface = require('../../interface');
 
 // Constants: environment
 const { NODE_ENV } = process.env;
@@ -41,11 +41,9 @@ const dev = {
   plugins: [
     new RunScriptAfterEmit({
       exec: [
-        // prettier-ignore
-        `echo \n🚀 Webpack Drupal ${NODE_ENV} build complete! 
-        Edit apps/drupal/webpack.config.js to replace this line with 
-        'drupal cr all' now. 🚀\n`,
+        'drupal cr all',
       ],
+      dev: false, // Runs on EVERY rebuild
     }),
   ],
 };
@@ -57,7 +55,7 @@ const prod = {
   },
 };
 
-module.exports = particle(
+module.exports = interface(
   // app
   { shared, dev, prod },
   // Default design system

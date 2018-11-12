@@ -6,9 +6,9 @@ dependencies:
   module:
     - system
   theme:
-    - particle
-id: particle_useraccountmenu
-theme: particle
+    - interface
+id: interface_useraccountmenu
+theme: interface
 region: secondary_menu
 weight: 11
 provider: null

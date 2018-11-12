@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - particle
-id: particle_messages
-theme: particle
+    - interface
+id: interface_messages
+theme: interface
 region: highlighted
 weight: -50
 provider: null

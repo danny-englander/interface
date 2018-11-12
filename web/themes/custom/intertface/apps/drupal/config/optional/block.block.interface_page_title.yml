@@ -2,9 +2,9 @@ langcode: en
 status: true
 dependencies:
   theme:
-    - particle
-id: particle_page_title
-theme: particle
+    - interface
+id: interface_page_title
+theme: interface
 region: content
 weight: -50
 provider: null

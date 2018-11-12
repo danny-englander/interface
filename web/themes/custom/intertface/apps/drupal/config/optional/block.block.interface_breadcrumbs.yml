@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - particle
-id: particle_breadcrumbs
-theme: particle
+    - interface
+id: interface_breadcrumbs
+theme: interface
 region: breadcrumb
 weight: -100
 provider: null

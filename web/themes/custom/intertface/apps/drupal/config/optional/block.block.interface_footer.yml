@@ -6,9 +6,9 @@ dependencies:
   module:
     - system
   theme:
-    - particle
-id: particle_footer
-theme: particle
+    - interface
+id: interface_footer
+theme: interface
 region: footer
 weight: 0
 provider: null

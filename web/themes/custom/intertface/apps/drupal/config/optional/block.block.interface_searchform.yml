@@ -4,9 +4,9 @@ dependencies:
   module:
     - search
   theme:
-    - particle
-id: particle_searchform
-theme: particle
+    - interface
+id: interface_searchform
+theme: interface
 region: primary_menu
 weight: 20
 provider: null

@@ -4,9 +4,9 @@ dependencies:
   module:
     - help
   theme:
-    - particle
-id: particle_help
-theme: particle
+    - interface
+id: interface_help
+theme: interface
 region: content
 weight: -30
 provider: null

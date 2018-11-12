@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - particle
-id: particle_sitebranding
-theme: particle
+    - interface
+id: interface_sitebranding
+theme: interface
 region: header_branding
 weight: 0
 provider: null

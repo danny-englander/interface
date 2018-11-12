@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Functions to support theming in the Particle theme.
+ * Functions to support theming in the interface theme.
  */
 
 use Drupal\Core\Form\FormStateInterface;
@@ -10,7 +10,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Implements hook_preprocess_HOOK().
  */
-function particle_preprocess_page(&$variables) {
+function interface_preprocess_page(&$variables) {
   $moduleHandler = \Drupal::service('module_handler');
   if ($moduleHandler->moduleExists('components')){
     $variables['has_components_module'] = TRUE;
@@ -20,7 +20,7 @@ function particle_preprocess_page(&$variables) {
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function particle_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+function interface_theme_suggestions_block_alter(array &$suggestions, array $variables) {
   // Provide suggestion for block templates by custom block type.
   if (!empty($variables['elements']['content']['#block_content'])) {
     $block = $variables['elements']['content']['#block_content'];
@@ -37,7 +37,7 @@ function particle_theme_suggestions_block_alter(array &$suggestions, array $vari
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function particle_theme_suggestions_image_alter(array &$suggestions, array $variables) {
+function interface_theme_suggestions_image_alter(array &$suggestions, array $variables) {
   $node = \Drupal::request()->attributes->get('node');
   if (!empty($node)) {
     $suggestions[] = 'image__' . $node->getType();
@@ -47,7 +47,7 @@ function particle_theme_suggestions_image_alter(array &$suggestions, array $vari
 /**
  * Implements hook_preprocess_block().
  */
-function particle_preprocess_block__system_branding_block(&$variables) {
+function interface_preprocess_block__system_branding_block(&$variables) {
   $logo_default = theme_get_setting('logo.use_default');
   $logo_url = theme_get_setting('logo.url');
 
@@ -63,7 +63,7 @@ function particle_preprocess_block__system_branding_block(&$variables) {
 /**
  * Implements hook_preprocess_breadcrumb().
  */
-function particle_preprocess_breadcrumb(&$variables) {
+function interface_preprocess_breadcrumb(&$variables) {
   if (($node = \Drupal::routeMatch()->getParameter('node')) && $variables['breadcrumb']) {
     $variables['breadcrumb'][] = [
       'text' => $node->getTitle()
@@ -74,27 +74,27 @@ function particle_preprocess_breadcrumb(&$variables) {
 /**
  * Implements hook_preprocess_user().
  */
-function particle_preprocess_user(&$variables) {
+function interface_preprocess_user(&$variables) {
   $variables['content']['member_for']['#markup'] = '';
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function particle_theme_suggestions_form_alter(array &$suggestions, array $variables) {
+function interface_theme_suggestions_form_alter(array &$suggestions, array $variables) {
   $id = $variables['element']['#id'];
-  // Particle Theme for Octane's Views Search and Drupal's Built-In Search.
+  // interface Theme for Octane's Views Search and Drupal's Built-In Search.
   // This hook allows to apply two search block implementations to the same theme file.
-  // Drupal only template file located at /particle/apps/drupal/templates/form/form--particle-search.html.twig.
+  // Drupal only template file located at /interface/apps/drupal/templates/form/form--interface-search.html.twig.
   if ($id == 'views-exposed-form-search-page' || $id == 'search-block-form') {
-    $suggestions[] = 'form__particle_search';
+    $suggestions[] = 'form__interface_search';
   }
 }
 
 /**
  * Implements hook_form_alter().
  */
-function particle_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+function interface_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $id = $form['#id'];
   // Switch method to allow additional cases for these forms.
   // We are handling two cases for search block config from Octane and Drupal.

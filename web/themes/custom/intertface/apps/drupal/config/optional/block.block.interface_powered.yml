@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - particle
-id: particle_powered
-theme: particle
+    - interface
+id: interface_powered
+theme: interface
 region: footer
 weight: 10
 provider: null

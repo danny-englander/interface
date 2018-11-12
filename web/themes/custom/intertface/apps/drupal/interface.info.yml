@@ -1,12 +1,12 @@
-name: Particle
+name: Interface
 type: theme
 description: A Theme with Pattern Lab
 base theme: stable
 core: 8.x
 libraries:
-  - particle/core
+  - interface/core
 libraries-override:
-  core/jquery: particle/jquery
+  core/jquery: interface/jquery
 regions:
   primary_menu: Primary menu
   highlighted: Highlighted

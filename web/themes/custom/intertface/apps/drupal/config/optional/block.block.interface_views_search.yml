@@ -7,9 +7,9 @@ dependencies:
     - system
     - views
   theme:
-    - particle
-id: particle_views_search
-theme: particle
+    - interface
+id: interface_views_search
+theme: interface
 region: primary_menu
 weight: 20
 provider: null

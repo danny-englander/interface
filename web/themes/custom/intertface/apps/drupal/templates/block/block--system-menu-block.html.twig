@@ -32,8 +32,8 @@
  */
 #}
 {% set heading_id = attributes.id ~ '-menu'|clean_id %}
-{# block-particle-mainnavigation requires nav to be set in region for Bootstrap's NavBar. #}
-{% if attributes.id != 'block-particle-mainnavigation' %}<nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby') }}>{% endif %}
+{# block-interface-mainnavigation requires nav to be set in region for Bootstrap's NavBar. #}
+{% if attributes.id != 'block-interface-mainnavigation' %}<nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby') }}>{% endif %}
   {# Label. If not displayed, we still provide it for screen readers. #}
   {% if not configuration.label_display %}
     {% set title_attributes = title_attributes.addClass('visually-hidden') %}
@@ -46,4 +46,4 @@
   {% block content %}
     {{ content }}
   {% endblock %}
-  {% if attributes.id != 'block-particle-mainnavigation' %}</nav>{% endif %}
+  {% if attributes.id != 'block-interface-mainnavigation' %}</nav>{% endif %}
