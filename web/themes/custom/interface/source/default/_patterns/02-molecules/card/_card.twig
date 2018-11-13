@@ -36,18 +36,22 @@
 ] | sort | join(' ') | trim %}
 
 <div class="uk-card uk-card-body uk-card-hover {{ card_classes }}">
+
     {% block card_header %}
         {% if card_header %}
             <div class="uk-card-header">
                 <div class="uk-grid-small uk-flex-middle" uk-grid>
                     <div class="uk-width-auto">
-                        <img class="uk-border-circle" width="40" height="40" src="@atoms/image/logo.svg">
+                        {% include '@atoms/image/_svg.twig' with {
+                            svgpath: '@molecules/card/person.svg',
+                        } %}
                     </div>
 
                     <div class="uk-width-expand">
                         <h3 class="uk-card-title uk-margin-remove-bottom">{{ card_header }}</h3>
                         <p class="uk-text-meta uk-margin-remove-top">
-                            <time datetime="2016-04-01T19:00">April 01, 2016</time>
+                            <time datetime="2016-04-01T19:00">April 01, 2016
+                            </time>
                         </p>
                     </div>
                 </div>
@@ -67,33 +71,34 @@
     {% endif %}
 
     {% block card_body %}
-        <div class="{{ body_class }}">
-            <h4 class="uk-card-title">{{ card_title }}</h4>
-            {% if card_text %}
-                <p class="card-text {{ text_color }}">{{ card_text }}</p>
-            {% endif %}
-            {% if card_body %}
-                <div class="uk-card-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt.
-                    </p>
-                </div>
-            {% endif %}
 
-            {% if card_link %}
-                <a href="{{ card_link }}" class="{{ card_link_class }}">{{ card_link_text }}</a>
-            {% endif %}
-            {% if button %}
-                {% include "@atoms/button/_button.twig" with button %}
-            {% endif %}
-        </div>
+        {% if card_title %}
+            <h3 class="uk-card-title">{{ card_title }}</h3>
+        {% endif %}
+
+        {% if card_text %}
+            <p class="card-text {{ text_color }}">{{ card_text }}</p>
+        {% endif %}
+
+        {% if card_body %}
+            <div class="uk-card-body">
+                <p>{{ card_body }}</p>
+            </div>
+        {% endif %}
+
+        {% if card_link %}
+            <a href="{{ card_link }}" class="{{ card_link_class }}">{{ card_link_text }}</a>
+        {% endif %}
+
     {% endblock %}
 
-    {% if card_footer %}
-        <div class="uk-card-footer">
-            <a href="#" class="uk-button uk-button-text">{{ card_footer }}</a>
-        </div>
-    {% endif %}
+    {% block card_footer %}
+        {% if card_footer %}
+            <div class="uk-card-footer">
+                <a href="{{ card_link }}" class="{{ card_link_class }}">{{ card_footer }}</a>
+            </div>
+        {% endif %}
+    {% endblock %}
 
     {% if card_image_location == 'bottom' %}
         {% block card_image_bottom %}
@@ -105,5 +110,4 @@
             } %}
         {% endblock card_image_bottom %}
     {% endif %}
-
 </div>

@@ -9,7 +9,7 @@
               card_text: helper_card_main,
               card_background: 'primary',
               text_color: 'light',
-          } %}
+          } only %}
       </div>
 
       <div class="uk-margin-bottom">
@@ -20,7 +20,7 @@
               button: {
                   button_link: 'https://getbootstrap.com/docs/4.0/layout/grid/#how-it-works' ~ ' target="_blank" rel="noopener noreferrer"',
               },
-          } %}
+          } only %}
       </div>
 
       <h2>Card Styles</h2>
@@ -28,13 +28,21 @@
       <hr class="uk-divider-icon">
 
       <h3>Basic Card</h3>
-      {% include '@molecules/card/_card.twig' with text_card_2 %}
-
-      <h3>Card with header, icon, body, and footer</h3>
       {% include '@molecules/card/_card.twig' with {
           card_title: card_title,
           card_text: card_text,
+          card_background: 'primary',
+          card_link: card_link,
+          card_link_text: card_link_text,
+          card_link_class: card_link_class,
+      } only %}
+
+      <h3>Card with header, icon, body, and footer</h3>
+      {% include '@molecules/card/_card.twig' with {
+          card_header: card_header,
+          card_body: card_body,
           card_background: 'default',
-      } %}
+          card_footer: card_footer,
+      } only %}
 
   {% endblock column_1 %}
