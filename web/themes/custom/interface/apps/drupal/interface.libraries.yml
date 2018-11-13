@@ -1,0 +1,25 @@
+# Define interface theme's library CSS and JS assets along with dependencies
+core:
+  css:
+    theme:
+      /themes/interface/dist/app-drupal/assets/app.styles.css:
+        preprocess: true
+  js:
+    /themes/interface/dist/app-drupal/assets/app.js: {}
+    /themes/interface/dist/app-drupal/assets/uikit.min.js: {}
+    /themes/interface/dist/app-drupal/assets/uikit-icons.min.js: {}
+  # see all in Drupal's `core/core.libraries.yml`
+  dependencies:
+    - interface/jquery
+    - core/drupal
+    - core/drupalSettings
+
+# Create custom jQuery libraries
+# that'll override the Drupal core jQuery libraries
+# See `libraries-override` in interface.info.yml
+jquery:
+  js:
+    /themes/interface/dist/app-drupal/assets/drupal-jquery.js:
+      { minified: true, weight: -20 }
+
+

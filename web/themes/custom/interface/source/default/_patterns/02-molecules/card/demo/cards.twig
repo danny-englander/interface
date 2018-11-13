@@ -1,0 +1,40 @@
+{% extends '@atoms/grid/_grid-1-up.twig' %}
+  {% set container = true %}
+
+  {% block column_1 %}
+      <h1>Cards</h1>
+
+      <div class="uk-margin-bottom">
+          {% include '@molecules/card/_card-helper.twig' with {
+              card_text: helper_card_main,
+              card_background: 'primary',
+              text_color: 'light',
+          } %}
+      </div>
+
+      <div class="uk-margin-bottom">
+          {% include '@molecules/card/_card-helper.twig' with {
+              card_title: 'Text',
+              card_text: helper_card_text,
+              card_background: 'default',
+              button: {
+                  button_link: 'https://getbootstrap.com/docs/4.0/layout/grid/#how-it-works' ~ ' target="_blank" rel="noopener noreferrer"',
+              },
+          } %}
+      </div>
+
+      <h2>Card Styles</h2>
+
+      <hr class="uk-divider-icon">
+
+      <h3>Basic Card</h3>
+      {% include '@molecules/card/_card.twig' with text_card_2 %}
+
+      <h3>Card with header, icon, body, and footer</h3>
+      {% include '@molecules/card/_card.twig' with {
+          card_title: card_title,
+          card_text: card_text,
+          card_background: 'default',
+      } %}
+
+  {% endblock column_1 %}

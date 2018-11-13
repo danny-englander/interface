@@ -1,0 +1,24 @@
+{#
+  NOTE: If this row is the very outer wrapper of a page, it *must* be wrapped
+  in a .container div. We leave this up to the implementor manually for flexibility.
+#}
+
+{% set container_class = [
+    'uk-container',
+] | sort | join(' ') | trim %}
+
+<div class="{{ container_class }}">
+    <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+        <div class="uk-width-1-2@m">
+            {% block column_1 %}
+                <span>Column 1/2</span>
+            {% endblock column_1 %}
+        </div>
+
+        <div class="uk-width-1-2@m">
+            {% block column_2 %}
+                <span>Column 2/2</span>
+            {% endblock column_2 %}
+        </div>
+    </div>
+</div>

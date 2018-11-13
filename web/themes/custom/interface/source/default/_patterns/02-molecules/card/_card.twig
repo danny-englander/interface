@@ -1,0 +1,109 @@
+{#
+  Card!
+
+  card_element: String (optional): Element tag that defaults to div.
+  card_width: Integer: 25|50|75 If left empty the card will fill the width of it's parent element.
+  card_background: String: primary|secondary|succes|danger|warning|info|light|dark Background color.
+  card_border: String: primary|secondary|succes|danger|warning|info|light|dark Border color.
+  text_alignment: String: center|right|left|jusfify Text alignment.
+  card_header: String: The header on the card.
+  card_image_location: String: top|bottom Indicates where the image is.
+  card_image: Object:
+    src: String: Path to image
+  card_image_overlay: String: The text overlay for an image (may require additional utilities).
+  card_title: String: The title on the cared.
+  card_subtitle: String: The subtitle on the card.
+  card_text: String: The text on the card.
+  text_color: String: primary|secondary|succes|danger|warning|info|light|dark Text color.
+  card_link: String: The path to another URL.
+  card_link_text: String: The link's text.
+  card_list: Number: The number of items in the list.
+  list_item: Loop variable: Do not set.
+  card_footer: String: The text on the footer.
+
+  see https://getbootstrap.com/docs/4.0/components/card/ for more details
+#}
+
+{% set card_classes = [
+    'uk-card',
+    card_background ? 'uk-card-' ~ card_background,
+    card_width ? 'w-' ~ card_width,
+    card_cols ? card_cols : '',
+    text_alignment ? 'text-' ~ text_alignment,
+    text_color ? 'text-' ~ text_color,
+    card_border ? 'border-' ~ card_border,
+    card_other_classes,
+] | sort | join(' ') | trim %}
+
+<div class="uk-card uk-card-body uk-card-hover {{ card_classes }}">
+    {% block card_header %}
+        {% if card_header %}
+            <div class="uk-card-header">
+                <div class="uk-grid-small uk-flex-middle" uk-grid>
+                    <div class="uk-width-auto">
+                        <img class="uk-border-circle" width="40" height="40" src="@atoms/image/logo.svg">
+                    </div>
+
+                    <div class="uk-width-expand">
+                        <h3 class="uk-card-title uk-margin-remove-bottom">{{ card_header }}</h3>
+                        <p class="uk-text-meta uk-margin-remove-top">
+                            <time datetime="2016-04-01T19:00">April 01, 2016</time>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endblock card_header %}
+
+    {% if card_image_location == 'top' %}
+        {% block card_image_top %}
+            {# if `card_image` is null, this falls back to a holderjs placeholder #}
+            {% include '@atoms/image/_image.twig' with {
+                imageStyleName: 'card',
+                class: 'card-img-top',
+                img: card_image,
+            } %}
+        {% endblock %}
+    {% endif %}
+
+    {% block card_body %}
+        <div class="{{ body_class }}">
+            <h4 class="uk-card-title">{{ card_title }}</h4>
+            {% if card_text %}
+                <p class="card-text {{ text_color }}">{{ card_text }}</p>
+            {% endif %}
+            {% if card_body %}
+                <div class="uk-card-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt.
+                    </p>
+                </div>
+            {% endif %}
+
+            {% if card_link %}
+                <a href="{{ card_link }}" class="{{ card_link_class }}">{{ card_link_text }}</a>
+            {% endif %}
+            {% if button %}
+                {% include "@atoms/button/_button.twig" with button %}
+            {% endif %}
+        </div>
+    {% endblock %}
+
+    {% if card_footer %}
+        <div class="uk-card-footer">
+            <a href="#" class="uk-button uk-button-text">{{ card_footer }}</a>
+        </div>
+    {% endif %}
+
+    {% if card_image_location == 'bottom' %}
+        {% block card_image_bottom %}
+            {# if `card_image` is null, this falls back to a holderjs placeholder #}
+            {% include '@atoms/image/_image.twig' with {
+                imageStyleName: 'card',
+                class: 'card-img-bottom',
+                img: card_image,
+            } %}
+        {% endblock card_image_bottom %}
+    {% endif %}
+
+</div>
