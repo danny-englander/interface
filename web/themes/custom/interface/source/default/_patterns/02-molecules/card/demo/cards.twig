@@ -9,6 +9,7 @@
               card_text: helper_card_main,
               card_background: 'primary',
               text_color: 'light',
+              card_has_body: card_basic.card_has_body,
           } only %}
       </div>
 
@@ -17,6 +18,7 @@
               card_title: 'Text',
               card_text: helper_card_text,
               card_background: 'default',
+              card_has_body: card_basic.card_has_body,
               button: {
                   button_link: 'https://getbootstrap.com/docs/4.0/layout/grid/#how-it-works' ~ ' target="_blank" rel="noopener noreferrer"',
               },
@@ -29,20 +31,32 @@
 
       <h3>Basic Card</h3>
       {% include '@molecules/card/_card.twig' with {
-          card_title: card_title,
-          card_text: card_text,
+          card_title: card_basic.card_title,
+          card_text: card_basic.card_text,
           card_background: 'primary',
-          card_link: card_link,
-          card_link_text: card_link_text,
-          card_link_class: card_link_class,
+          card_link: card_basic.card_link,
+          card_link_text: card_basic.card_link_text,
+          card_link_class: card_basic.card_link_class,
+          card_has_body: card_basic.card_has_body,
+      } %}
+
+      <h3>Card, Multi-part</h3>
+      {% include '@molecules/card/_card.twig' with {
+          card_header: card_multipart.card_header,
+          card_body: card_multipart.card_body,
+          card_background: 'default',
+          card_footer: card_multipart.card_footer,
       } only %}
 
-      <h3>Card with header, icon, body, and footer</h3>
-      {% include '@molecules/card/_card.twig' with {
-          card_header: card_header,
-          card_body: card_body,
-          card_background: 'default',
-          card_footer: card_footer,
-      } only %}
+      <h3>Card with Top Image</h3>
+      <div class="uk-flex uk-flex-center uk-child-width-1-2@m">
+          {% include '@molecules/card/_card.twig' with {
+              card_image_location: card_basic.card_image_location,
+              card_title: card_basic.card_title,
+              card_body: card_basic.card_body,
+              card_background: 'default',
+              card_body: card_basic.card_body,
+          } only %}
+      </div>
 
   {% endblock column_1 %}

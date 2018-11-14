@@ -23,3 +23,14 @@
 //  src: local('Oswald Regular'), local('Oswald-Regular'), url(../fonts/Oswald-Medium.ttf) format('truetype');
 //  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 //}
+
+.uk-light,
+.uk-section-primary:not(.uk-preserve-color),
+.uk-section-secondary:not(.uk-preserve-color),
+.uk-tile-primary:not(.uk-preserve-color),
+.uk-tile-secondary:not(.uk-preserve-color),
+.uk-card-primary.uk-card-body, .uk-card-primary > :not([class*='uk-card-media']),
+.uk-card-secondary.uk-card-body, .uk-card-secondary > :not([class*='uk-card-media']),
+.uk-overlay-primary, .uk-offcanvas-bar {
+  color: rgba(255, 255, 255, 1);
+}

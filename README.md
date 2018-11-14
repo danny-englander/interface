@@ -1,6 +1,10 @@
-# Docksal powered Drupal 8 With Composer Installation
+# Interface
 
-This is a sample Drupal 8 with Composer installation pre-configured for use with Docksal.
+`ˈɪntərˌfeɪs`: A Particle based Drupal 8 design system and theme that leverages Pattern Lab, webpack, Composer, NPM, Gulp, and component driven development.
+
+## Docksal powered Drupal 8 With Composer 
+
+Drupal 8 with Composer pre-configured for use with [Docksal](https://docksal.io/).
 
 Features:
 
@@ -22,8 +26,8 @@ Follow [Docksal environment setup instructions](https://docs.docksal.io/en/maste
 1. Clone this repo into your Projects directory
 
     ```
-    git clone https://github.com/docksal/example-drupal8-composer.git drupal8
-    cd drupal8
+    git clone https://github.com/docksal/example-drupal8-composer.git interface
+    cd interface
     ```
 
 2. Initialize the site
@@ -37,13 +41,13 @@ Follow [Docksal environment setup instructions](https://docs.docksal.io/en/maste
 3. Point your browser to
 
     ```
-    http://drupal8.docksal
+    http://interface.docksal
     ```
 
 When the automated install is complete the command line output will display the admin username and password.
 
 
-## More automation with 'fin init'
+## Automation with 'fin init'
 
 Site provisioning can be automated using `fin init`, which calls the shell script in [.docksal/commands/init](.docksal/commands/init).
 This script is meant to be modified per project. The one in this repo will give you a good starting example.

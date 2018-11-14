@@ -27,6 +27,7 @@
 {% set card_classes = [
     'uk-card',
     card_background ? 'uk-card-' ~ card_background,
+    card_has_body ? card_has_body: '',
     card_width ? 'w-' ~ card_width,
     card_cols ? card_cols : '',
     text_alignment ? 'text-' ~ text_alignment,
@@ -35,7 +36,7 @@
     card_other_classes,
 ] | sort | join(' ') | trim %}
 
-<div class="uk-card uk-card-body uk-card-hover {{ card_classes }}">
+<div class="uk-card uk-card-hover {{ card_classes }}">
 
     {% block card_header %}
         {% if card_header %}
@@ -50,8 +51,7 @@
                     <div class="uk-width-expand">
                         <h3 class="uk-card-title uk-margin-remove-bottom">{{ card_header }}</h3>
                         <p class="uk-text-meta uk-margin-remove-top">
-                            <time datetime="2016-04-01T19:00">April 01, 2016
-                            </time>
+                            <time datetime="{{ "now"| date('l d F, Y') }}">{{ "now"| date('l d F, Y') }}</time>
                         </p>
                     </div>
                 </div>
@@ -61,18 +61,20 @@
 
     {% if card_image_location == 'top' %}
         {% block card_image_top %}
-            {# if `card_image` is null, this falls back to a holderjs placeholder #}
-            {% include '@atoms/image/_image.twig' with {
-                imageStyleName: 'card',
-                class: 'card-img-top',
-                img: card_image,
-            } %}
+            <div class="uk-card-media-top">
+                {# if `card_image` is null, this falls back to a holderjs placeholder #}
+                {% include '@atoms/image/_image.twig' with {
+                    imageStyleName: 'card',
+                    class: 'card-img-top',
+                    img: "https://images.unsplash.com/photo-1520942102477-2e3317488976?dpr=1&auto=format&fit=crop&w=600&h=700&q=60&cs=tinysrgb",
+                } %}
+            </div>
         {% endblock %}
     {% endif %}
 
     {% block card_body %}
 
-        {% if card_title %}
+        {% if card_title and not card_body %}
             <h3 class="uk-card-title">{{ card_title }}</h3>
         {% endif %}
 
@@ -82,6 +84,7 @@
 
         {% if card_body %}
             <div class="uk-card-body">
+                <h3 class="uk-card-title">{{ card_title }}</h3>
                 <p>{{ card_body }}</p>
             </div>
         {% endif %}

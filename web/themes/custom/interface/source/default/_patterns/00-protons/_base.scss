@@ -16,15 +16,12 @@
 // are provided to this file via:
 //   webpack.particle.js: sass-loader.data|includePaths
 
-// Bring in all Bootstrap printing styles, customized by
-//   00-protons/non-printing/_bootstrap-overrides.scss
-//@import 'printing/bootstrap-printing';
+// UIKit CSS
+@import "uikit.css";
 
-// Custom CSS-generating output
+// Overrides
 @import 'printing/type';
 @import 'printing/forms';
 @import 'printing/tables';
 @import 'printing/transitions';
 @import 'printing/elements';
-
-@import "uikit.css";
