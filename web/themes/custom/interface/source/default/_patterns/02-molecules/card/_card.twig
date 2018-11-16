@@ -66,7 +66,7 @@
                 {% include '@atoms/image/_image.twig' with {
                     imageStyleName: 'card',
                     class: 'card-img-top',
-                    img: "https://images.unsplash.com/photo-1520942102477-2e3317488976?dpr=1&auto=format&fit=crop&w=600&h=700&q=60&cs=tinysrgb",
+                    img: "https://images.unsplash.com/photo-1520942102477-2e3317488976?dpr=1&auto=format&fit=crop&w=600&h=700&q=40&cs=tinysrgb",
                 } %}
             </div>
         {% endblock %}
@@ -105,12 +105,14 @@
 
     {% if card_image_location == 'bottom' %}
         {% block card_image_bottom %}
-            {# if `card_image` is null, this falls back to a holderjs placeholder #}
-            {% include '@atoms/image/_image.twig' with {
-                imageStyleName: 'card',
-                class: 'card-img-bottom',
-                img: card_image,
-            } %}
+            <div class="uk-card-media-bottom">
+                {# if `card_image` is null, this falls back to a holderjs placeholder #}
+                {% include '@atoms/image/_image.twig' with {
+                    imageStyleName: 'card',
+                    class: 'card-img-top',
+                    img: "https://images.unsplash.com/photo-1462743708072-4ed3a4a860be?dpr=1&auto=format&fit=crop&w=600&h=700&q=40&cs=tinysrgb",
+                } %}
+            </div>
         {% endblock card_image_bottom %}
     {% endif %}
 </div>

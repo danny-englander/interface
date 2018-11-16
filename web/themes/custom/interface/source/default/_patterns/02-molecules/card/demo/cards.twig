@@ -4,32 +4,33 @@
   {% block column_1 %}
       <h1>Cards</h1>
 
-      <div class="uk-margin-bottom">
-          {% include '@molecules/card/_card-helper.twig' with {
-              card_text: helper_card_main,
-              card_background: 'primary',
-              text_color: 'light',
-              card_has_body: card_basic.card_has_body,
-          } only %}
-      </div>
+      {#<div class="uk-margin-bottom">#}
+          {#{% include '@molecules/card/_card-helper.twig' with {#}
+              {#card_text: helper_card_main,#}
+              {#card_background: 'primary',#}
+              {#text_color: 'light',#}
+              {#card_has_body: card_basic.card_has_body,#}
+          {#} only %}#}
+      {#</div>#}
 
-      <div class="uk-margin-bottom">
-          {% include '@molecules/card/_card-helper.twig' with {
-              card_title: 'Text',
-              card_text: helper_card_text,
-              card_background: 'default',
-              card_has_body: card_basic.card_has_body,
-              button: {
-                  button_link: 'https://getbootstrap.com/docs/4.0/layout/grid/#how-it-works' ~ ' target="_blank" rel="noopener noreferrer"',
-              },
-          } only %}
-      </div>
+      {#<div class="uk-margin-bottom">#}
+          {#{% include '@molecules/card/_card-helper.twig' with {#}
+              {#card_title: 'Text',#}
+              {#card_text: helper_card_text,#}
+              {#card_background: 'default',#}
+              {#card_has_body: card_basic.card_has_body,#}
+              {#button: {#}
+                  {#button_link: 'https://getbootstrap.com/docs/4.0/layout/grid/#how-it-works' ~ ' target="_blank" rel="noopener noreferrer"',#}
+              {#},#}
+          {#} only %}#}
+      {#</div>#}
 
-      <h2>Card Styles</h2>
+      {#<h2 class="uk-text-center">Card Styles</h2>#}
 
       <hr class="uk-divider-icon">
-
-      <h3>Basic Card</h3>
+<div class="uk-child-width-1-2@m uk-margin-large-top" uk-grid>
+    <div>
+      <h2>Basic Card</h2>
       {% include '@molecules/card/_card.twig' with {
           card_title: card_basic.card_title,
           card_text: card_basic.card_text,
@@ -39,17 +40,21 @@
           card_link_class: card_basic.card_link_class,
           card_has_body: card_basic.card_has_body,
       } %}
-
-      <h3>Card, Multi-part</h3>
+    </div>
+    <div>
+      <h2>Card, Multi-part</h2>
       {% include '@molecules/card/_card.twig' with {
           card_header: card_multipart.card_header,
           card_body: card_multipart.card_body,
           card_background: 'default',
           card_footer: card_multipart.card_footer,
       } only %}
+    </div>
+</div>
 
-      <h3>Card with Top Image</h3>
-      <div class="uk-flex uk-flex-center uk-child-width-1-2@m">
+<div class="uk-child-width-1-2@m uk-margin-large-top" uk-grid>
+    <div>
+      <h2>Card with Top Image</h2>
           {% include '@molecules/card/_card.twig' with {
               card_image_location: card_basic.card_image_location,
               card_title: card_basic.card_title,
@@ -58,5 +63,17 @@
               card_body: card_basic.card_body,
           } only %}
       </div>
+
+      <div>
+          <h2>Card with Bottom Image</h2>
+          {% include '@molecules/card/_card.twig' with {
+              card_image_location: 'bottom',
+              card_title: card_basic.card_title,
+              card_body: card_basic.card_body,
+              card_background: 'default',
+              card_body: card_basic.card_body,
+          } only %}
+      </div>
+    </div>
 
   {% endblock column_1 %}

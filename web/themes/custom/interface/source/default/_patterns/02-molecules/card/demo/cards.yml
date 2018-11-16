@@ -27,9 +27,9 @@ helper_card_blocks: "This example card uses twig's block system to override the
   provided default body template with new elements"
 
 card_basic:
-  card_title: 'Im a card title'
+  card_title: "This is a Card Title"
   card_text: "Some quick example text to build on the card title and make up the bulk of the card's content."
-  card_body: "This is some card body text"
+  card_body: "This is card body text"
   card_header: 'This is the card header on a multi-part card'
   card_link: 'https://github.com/phase2/particle'
   card_link_text: 'Read more'
@@ -50,7 +50,7 @@ card_basic:
 
 card_multipart:
   card_header: 'This is the card header on a multi-part card'
-  card_body: "This is some card body text"
+  card_body: "This is card body text"
   card_link: 'https://github.com/phase2/particle'
   card_link_text: 'Read more'
   card_link_class: "uk-button uk-button-default"
